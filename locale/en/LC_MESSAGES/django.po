@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-13 20:35+0400\n"
+"POT-Creation-Date: 2025-04-14 01:58+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,162 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\accounts\models.py:14
+
+#: .\accounts\admin.py:35
+msgid "المعلومات الشخصية"
+msgstr ""
+
+#: .\accounts\admin.py:42
+msgid "الصلاحيات"
+msgstr ""
+
+#: .\accounts\admin.py:49
+msgid "تواريخ مهمة"
+msgstr ""
+
+#: .\accounts\admin.py:101
+msgid "الاسم العربي"
+msgstr ""
+
+#: .\accounts\admin.py:105 .\accounts\models.py:22
+msgid "نوع المستخدم"
+msgstr ""
+
+#: .\accounts\admin.py:109
+msgid "العنوان العربي"
+msgstr ""
+
+#: .\accounts\admin.py:113
+msgid "العنوان الإنجليزي"
+msgstr ""
+
+#: .\accounts\admin.py:135
+msgid "معلومات المستخدم"
+msgstr ""
+
+#: .\accounts\admin.py:139
+msgid "رابط الملف"
+msgstr ""
+
+#: .\accounts\admin.py:143
+msgid "عرض الملف"
+msgstr ""
+
+#: .\accounts\admin.py:144
+msgid "لا يوجد ملف"
+msgstr ""
+
+#: .\accounts\admin.py:152
+msgid "تفاصيل الملف"
+msgstr ""
+
+#: .\accounts\admin.py:173
+msgid "إدارة نظام الإيجارات - عمان"
+msgstr ""
+
+#: .\accounts\admin.py:174
+msgid "نظام إدارة العقارات"
+msgstr ""
+
+#: .\accounts\admin.py:175
+msgid "مرحبا بكم في لوحة التحكم"
+msgstr ""
+
+#: .\accounts\forms.py:13 .\accounts\forms.py:17 .\accounts\forms.py:180
+#: .\accounts\forms.py:184
+msgid "كلمة المرور"
+msgstr ""
+
+#: .\accounts\forms.py:20
+msgid "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل."
+msgstr ""
+
+#: .\accounts\forms.py:23 .\accounts\forms.py:27
+msgid "تأكيد كلمة المرور"
+msgstr ""
+
+#: .\accounts\forms.py:42 .\accounts\forms.py:85
+msgid "اسم المستخدم"
+msgstr ""
+
+#: .\accounts\forms.py:43 .\accounts\forms.py:86
+msgid "البريد الإلكتروني"
+msgstr ""
+
+#: .\accounts\forms.py:44
+msgid "نوع الحساب"
+msgstr ""
+
+#: .\accounts\forms.py:45 .\accounts\forms.py:87
+msgid "الهاتف"
+msgstr ""
+
+#: .\accounts\forms.py:46 .\accounts\forms.py:88 .\accounts\models.py:40
+msgid "الاسم بالعربية"
+msgstr ""
+
+#: .\accounts\forms.py:47 .\accounts\forms.py:89 .\accounts\models.py:46
+msgid "الاسم بالإنجليزية"
+msgstr ""
+
+#: .\accounts\forms.py:66 .\accounts\models.py:14 .\accounts\views.py:78
 msgid "مالك المبني"
+msgstr ""
+
+#: .\accounts\forms.py:67 .\accounts\views.py:79
+msgid "مستثمر المبني"
+msgstr ""
+
+#: .\accounts\forms.py:68 .\accounts\models.py:16 .\accounts\views.py:80
+msgid "شركة مستأجرة"
+msgstr ""
+
+#: .\accounts\forms.py:104 .\accounts\models.py:83
+msgid "العنوان بالعربية"
+msgstr ""
+
+#: .\accounts\forms.py:105 .\accounts\models.py:88
+msgid "العنوان بالإنجليزية"
+msgstr ""
+
+#: .\accounts\forms.py:106
+msgid "الشعار الشركة"
+msgstr ""
+
+#: .\accounts\forms.py:138 .\accounts\models.py:126
+msgid "نوع المستند"
+msgstr ""
+
+#: .\accounts\forms.py:139
+msgid "رفع الملف"
+msgstr ""
+
+#: .\accounts\forms.py:140 .\accounts\models.py:135
+msgid "تاريخ الإصدار"
+msgstr ""
+
+#: .\accounts\forms.py:141 .\accounts\models.py:141 .\rentals\models.py:127
+msgid "تاريخ الانتهاء"
+msgstr ""
+
+#: .\accounts\forms.py:170 .\accounts\forms.py:174
+msgid "اسم المستخدم أو البريد الإلكتروني"
+msgstr ""
+
+#: .\accounts\forms.py:189
+msgid "تذكرني"
+msgstr ""
+
+#: .\accounts\forms.py:203
+msgid "البريد الإلكتروني المسجل"
+msgstr ""
+
+#: .\accounts\forms.py:207
+msgid "أدخل بريدك الإلكتروني"
 msgstr ""
 
 #: .\accounts\models.py:15
 msgid "مستثمر"
-msgstr ""
-
-#: .\accounts\models.py:16
-msgid "شركة مستأجرة"
-msgstr ""
-
-#: .\accounts\models.py:22
-msgid "نوع المستخدم"
 msgstr ""
 
 #: .\accounts\models.py:28
@@ -39,14 +181,6 @@ msgstr ""
 
 #: .\accounts\models.py:33
 msgid "هاتف عماني"
-msgstr ""
-
-#: .\accounts\models.py:40
-msgid "الاسم بالعربية"
-msgstr ""
-
-#: .\accounts\models.py:46
-msgid "الاسم بالإنجليزية"
 msgstr ""
 
 #: .\accounts\models.py:52
@@ -67,14 +201,6 @@ msgstr ""
 
 #: .\accounts\models.py:79 .\accounts\models.py:114
 msgid "المستخدم"
-msgstr ""
-
-#: .\accounts\models.py:83
-msgid "العنوان بالعربية"
-msgstr ""
-
-#: .\accounts\models.py:88
-msgid "العنوان بالإنجليزية"
 msgstr ""
 
 #: .\accounts\models.py:94
@@ -101,20 +227,8 @@ msgstr ""
 msgid "عقد التأسيس"
 msgstr ""
 
-#: .\accounts\models.py:126
-msgid "نوع المستند"
-msgstr ""
-
 #: .\accounts\models.py:131
 msgid "الملف"
-msgstr ""
-
-#: .\accounts\models.py:135
-msgid "تاريخ الإصدار"
-msgstr ""
-
-#: .\accounts\models.py:141 .\rentals\models.py:127
-msgid "تاريخ الانتهاء"
 msgstr ""
 
 #: .\accounts\models.py:147
@@ -123,6 +237,54 @@ msgstr ""
 
 #: .\accounts\models.py:148
 msgid "وثائق الشركات"
+msgstr ""
+
+#: .\accounts\views.py:20
+msgid "نظام الإيجارات"
+msgstr ""
+
+#: .\accounts\views.py:29
+msgid "تسجيل الدخول"
+msgstr ""
+
+#: .\accounts\views.py:73
+msgid "تسجيل حساب جديد"
+msgstr ""
+
+#: .\accounts\views.py:92
+msgid "الملف الشخصي"
+msgstr ""
+
+#: .\accounts\views.py:108
+msgid "لوحة التحكم - مالك المبني"
+msgstr ""
+
+#: .\accounts\views.py:118
+msgid "لوحة التحكم - المستثمر"
+msgstr ""
+
+#: .\accounts\views.py:128
+msgid "لوحة التحكم - شركة المستأجرة"
+msgstr ""
+
+#: .\accounts\views.py:142
+msgid "إضافة وثيقة"
+msgstr ""
+
+#: .\accounts\views.py:160
+msgid "وثائق الشركة"
+msgstr ""
+
+#: .\accounts\views.py:172
+msgid "تغيير كلمة المرور"
+msgstr ""
+
+#: .\realestate\settings.py:110
+msgid "Arabic"
+msgstr ""
+
+#: .\realestate\settings.py:111
+msgid "English"
 msgstr ""
 
 #: .\rentals\models.py:13
