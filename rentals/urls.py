@@ -31,4 +31,7 @@ urlpatterns = [
 
   # التقارير
   path('reports/', views.reports, name='reports'),
+
+  # الصفحة الجديدة
+  path('new_page/', views.new_page, name='new_page'),
 ]
