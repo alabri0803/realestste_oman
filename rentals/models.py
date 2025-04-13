@@ -9,6 +9,10 @@ class Building(models.Model):
   total_floors = models.IntegerField(verbose_name='عدد الطوابق')
   description = models.TextField(blank=True, verbose_name='وصف المبنى')
 
+  class Meta:
+    verbose_name = 'مبنى'
+    verbose_name_plural = 'المباني'
+
   def __str__(self):
     return self.name
   
@@ -27,6 +31,10 @@ class Unit(models.Model):
   monthly_rent = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='الإيجار الشهري (ريال عماني)')
   is_occupied = models.BooleanField(default=False, verbose_name='مؤجرة؟')
 
+  class Meta:
+    verbose_name = 'وحدة'
+    verbose_name_plural = 'الوحدات'
+
   def __str__(self):
     return f"{self.unit_number} - {self.get_unit_type_display()}"
 
@@ -38,6 +46,10 @@ class LeaseContract(models.Model):
   monthly_rent = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='الإيجار الشهري (ريال عماني)')
   deposit_amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='قيمة الضمان (ريال عماني)')
   contract_file = models.FileField(upload_to='contracts/', verbose_name='ملف العقد')
+
+  class Meta:
+    verbose_name = 'عقد إيجار'
+    verbose_name_plural = 'عقود الإيجار'
 
   def __str__(self):
     return f"عقد {self.company.name} - {self.unit.unit_number}"

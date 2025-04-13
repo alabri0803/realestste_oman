@@ -13,6 +13,10 @@ class Payment(models.Model):
   payment_method = models.CharField(max_length=50, choices=PAYMENTS_METHODS, verbose_name='طريقة الدفع')
   receipt_number = models.CharField(max_length=50, unique=True, verbose_name='رقم الإيصال')
 
+  class Meta:
+    verbose_name = 'دفعة'
+    verbose_name_plural = 'الدفعات'
+
   def __str__(self):
     return f"دفعة {self.amount} ريال - {self.contract}"
 
@@ -22,6 +26,10 @@ class Invoice(models.Model):
   issue_date = models.DateField(verbose_name='تاريخ الإصدار')
   due_date = models.DateField(verbose_name='تاريخ الاستحقاق')
   status = models.CharField(max_length=50, choices=(('paid', 'مسددة'), ('unpaid', 'غير مسددة')), verbose_name='الحالة')
+
+  class Meta:
+    verbose_name = 'فاتورة'
+    verbose_name_plural = 'الفواتير'
 
   def __str__(self):
     return self.invoice_number

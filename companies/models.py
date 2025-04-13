@@ -9,5 +9,9 @@ class Company(models.Model):
   email = models.EmailField(verbose_name='البريد الإلكتروني')
   logo = models.ImageField(upload_to='company_logos/', blank=True, verbose_name='شعار الشركة')
 
+  class Meta:
+    verbose_name = 'شركة'
+    verbose_name_plural = 'الشركات'
+
   def __str__(self):
     return self.name
