@@ -130,7 +130,8 @@ class CompanyDocumentAdmin(admin.ModelAdmin):
     'expiry_date',
     'file_link'
   )
-
+  readonly_fields = ('file_link',)
+  
   @admin.display(description=_('معلومات المستخدم'))
   def user_info(self, obj):
     return f"{obj.user.arabic_name} ({obj.user.get_user_type_display()})"
