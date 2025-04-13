@@ -1,0 +1,22 @@
+/* تنسيقات للوحة الإدارة في اللغة العربية */
+body {
+    direction: rtl;
+    text-align: right;
+}
+/* تعديل موقع عناصر النموذج */
+.form-row .fieldBox {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+/* تعديل موقع أزرار الإجراءات */
+.submit-row {
+    direction: rtl;
+}
+
+.submit-row input {
+    float: right;
+    margin-right: 0;
+    margin-left: 5px;
+}
