@@ -2,36 +2,31 @@ from django.urls import path
 
 from . import views
 
+app_name = 'rentals'
+
 urlpatterns = [
-  path('', views.home, name='home'),
+  # المباني
+  path('buildings/', views.BuildingListView.as_view(), name='building_list'),
+  path('buildings/<int:pk>/', views.building_detail, name='building_detail'),
+  path('buildings/add/', views.building_create, name='building_create'),
+  path('buildings/<int:pk>/edit/', views.building_update, name='building_update'),
+  path('buildings/<int:pk>/delete/', views.building_delete, name='building_delete'),
 
   # الوحدات
-  path('units/', views.units, name='units'),
-  path('units/add/', views.add_unit, name='add_unit'),
+  path('units/', views.unit_list, name='unit_list'),
   path('units/<int:pk>/', views.unit_detail, name='unit_detail'),
-  path('units/<int:pk>/edit/', views.edit_unit, name='edit_unit'),
-
-  # الشركات
-  path('companies/', views.companies_list, name='companies_list'),
-  path('companies/add/', views.add_company, name='add_company'),
-  path('companies/<int:pk>/', views.company_detail, name='company_detail'),
-  path('companies/<int:pk>/edit/', views.edit_company, name='edit_company'),
+  path('units/add/', views.unit_create, name='unit_create'),
+  path('units/<int:pk>/edit/', views.unit_update, name='unit_update'),
+  path('units/<int:pk>/delete/', views.unit_delete, name='unit_delete'),
 
   # العقود
-  path('contracts/', views.contracts_list, name='contracts_list'),
-  path('contracts/add/', views.add_contract, name='add_contract'),
+  path('contracts/', views.contract_list, name='contract_list'),
   path('contracts/<int:pk>/', views.contract_detail, name='contract_detail'),
-  path('contracts/<int:pk>/edit/', views.edit_contract, name='edit_contract'),
-  path('contracts/<int:pk>/renew/', views.renew_contract, name='renew_contract'),
-  path('contracts/<int:pk>/terminate/', views.terminate_contract, name='terminate_contract'),
+  path('contracts/add/', views.contract_create, name='contract_create'),
+  path('contracts/<int:pk>/edit/', views.contract_update, name='contract_update'),
+  path('contracts/<int:pk>/renew/', views.contract_renew, name='contract_renew'),
+  path('contracts/<int:pk>/terminate/', views.contract_terminate, name='contract_terminate'),
 
-  # المدفوعات
-  path('payments/', views.payments_list, name='payments_list'),
-  path('payments/add/<int:contract_id>/', views.add_payment, name='add_payment'),
-
-  # التقارير
-  path('reports/', views.reports, name='reports'),
-
-  # الصفحة الجديدة
-  path('new_page/', views.new_page, name='new_page'),
+  # الرئيسية
+  path('', views.home, name='home')
 ]

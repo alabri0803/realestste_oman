@@ -1,7 +1,9 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
+
 from .forms import UserRegistrationForm
+
 
 def user_login(request):
   if request.method == 'POST':
@@ -24,3 +26,13 @@ def user_register(request):
   else:
     form = UserRegistrationForm()
   return render(request, 'accounts/register.html', {'form': form})
+
+def user_logout(request):
+  logout(request)
+  return redirect('login')
+
+def user_profile(request):
+  return render(request, 'accounts/profile.html')
+
+def change_password(request):
+  return render(request, 'accounts/change_password.html')
