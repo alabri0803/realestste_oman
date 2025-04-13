@@ -26,7 +26,7 @@ urlpatterns = [
 
   # إدارة اللغة والاتجاه
   path('set-language/', set_language, name='set_language'),
-  path('toggle-rtl/', views.toggle_rtl, name='toggle_rtl'),
+  #path('toggle-rtl/', views.toggle_rtl, name='toggle_rtl'),
 
   # مسارات خاصة بأنواع المستخدمين
   path('owner/dashboard/', views.BuildingOwnerDashboard.as_view(), name='owner_dashboard'),
