@@ -54,7 +54,7 @@ def building_create(request):
 class UnitListView(ListView):
   model = Unit
   template_name = 'rentals/unit_list.html'
-  filterset_class = UnitFilter
+  #filterset_class = UnitFilter
 
 def unit_detail(request, pk):
   unit = get_object_or_404(Unit, pk=pk)
@@ -138,3 +138,6 @@ def contract_terminate(request, pk):
     contract.delete()
     return redirect('contract_list')
   return render(request, 'rentals/contract_terminate.html', {'contract': contract})
+
+def home(request):
+  return render(request, 'rentals/home.html')
