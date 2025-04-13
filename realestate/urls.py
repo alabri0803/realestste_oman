@@ -23,6 +23,6 @@ urlpatterns = i18n_patterns (
     #path('', include('rentals.urls')),
     #path('companies/', include('companies.urls')),
     #path('payments/', include('payments.urls')),
-    #path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
     #path('reports/', include('reports.urls')),
 )
