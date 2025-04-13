@@ -22,7 +22,7 @@ urlpatterns = [
 
   # وثائق الشركات
   path('documents/add/', CompanyDocumentCreateView.as_view(), name='add_document'),
-  path('documents/<int:pk>', views.CompanyDocumentDetailView.as_view(), name='document_detail'),
+  #path('documents/<int:pk>', views.CompanyDocumentDetailView.as_view(), name='document_detail'),
 
   # إدارة اللغة والاتجاه
   path('set-language/', set_language, name='set_language'),
@@ -34,7 +34,7 @@ urlpatterns = [
   path('company/dashboard/', views.RentalCompanyDashboard.as_view(), name='company_dashboard'),
 
   # API Endopints
-  path('api/user-type/', views.UserTypeAPIView.as_view(), name='user_type_api'),
+  #path('api/user-type/', views.UserTypeAPIView.as_view(), name='user_type_api'),
 ]
 
 # اسماء المترجمة
