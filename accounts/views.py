@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import View, TemplateView, CreateView, UpdateView, DetailView, ListView
@@ -8,6 +8,13 @@ from .models import CustomUser, UserProfile, CompanyDocument
 from .forms import CustomUserCreationForm, UserProfileForm, CompanyDocumentForm, LoginForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import Http404, request
+from django.db.models import Q
+from django.contrib import messages
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
 class BaseRTLView:
   """
   كلاس أساسي لإعدادات والترجمة
@@ -20,6 +27,17 @@ class BaseRTLView:
     context['page_title'] = getattr(self, 'page_title', _('نظام الإيجارات'))
     return context
 
+def toggle_rtl(request):
+  """
+  دالة لتبديل وضع RTL/LTR وحفظه في الجلسة
+  """
+  if 'rtl_mode' not in request.session:
+      request.session['rtl_mode'] = True if get_language() == 'ar' else False
+
+  request.session['rtl_mode'] = not request.session['rtl_mode']
+  referer = request.META.get('HTTP_REFERER', '/')
+  return redirect(referer)
+  
 # مصادقة المستخدمين
 class CustomLoginView(BaseRTLView, View):
   """
@@ -165,6 +183,84 @@ class CompanyDocumentListView(LoginRequiredMixin, BaseRTLView, ListView):
   def get_queryset(self):
     return CompanyDocument.objects.filter(user=self.request.user)
 
+class CompanyDocumentDetailView(LoginRequiredMixin, UserPassesTestMixin, BaseRTLView, DetailView):
+  """
+  واجهة عرض تفاصيل وثيقة الشركة مع تحقق من صلاحيات المستخدم ويدعم الترجمة
+  """
+  model = CompanyDocument
+  template_name = 'accounts/documents/detail.html'
+  context_object_name = 'document'
+  page_title = _('تفاصيل الوثيقة')
+
+  def test_func(self):
+    """
+    تحقق من أن المستخدم عرض الوثيقة
+    """
+    document = self.get_object()
+    user = self.request.user
+
+    # المالك يمكنه رؤية جميع الوثائق المبني
+    if user.user_type == 'owner':
+      return True
+    # المستثمر يمكنه رؤية جميع الوثائق المبني
+    elif user.user_type == 'investor':
+      return document.building.owner == user
+    # الشركة يمكنها رؤية وثائقها فقط
+    elif user.user_type == 'company':
+      return document.company == user
+    return False
+
+  def get_object(self):
+    """
+    استرجاع الوثيقة مع التحقق من وجودها
+    """
+    try:
+      doc = super().get_object(request)
+      # تحقق إضافي من أن الوثيقة تابعة للمستخدم الحالي
+      if doc.user != self.request.user:
+        raise Http404(_('لا تملك صلاحية عرض هذه الوثيقة.'))
+      return doc
+    except CompanyDocument.DoesNotExist:
+      raise Http404(_('الوثيقة غير موجودة.'))
+
+  def get_context_data(self, **kwargs):
+    """
+    إضافة بيانات إضافية للقالب
+    """
+    context = super().get_context_data(**kwargs)
+    document = self.get_object()
+
+    # بيانات إضافية حسب نوع المستخدم
+    if self.request.user.user_type == 'owner':
+      context['can_edit'] = True
+      context['can_delete'] = True
+    else:
+      context['can_edit'] = document.user == self.request.user
+      context['can_delete'] = document.user == self.request.user
+
+    # معلومات ملف المرفق
+    context['file_url'] = {
+      'name': document.file.name.split('/')[-1],
+      'size': f"{document.file.size / 1024:.1f} KB",
+      'type': document.get_document_type_display()
+    }
+
+    # إضافة زر العودة المناسب
+    if self.request.user.user_type == 'owner':
+      context['back_url'] = reverse_lazy('accounts:owner_dashboard')
+    else:
+      context['back_url'] = reverse_lazy('accounts:document_list')
+    return context
+
+  def handle_no_permission(self):
+    """
+    معالجة حالة عدم وجود صلاحيات
+    """
+    if self.request.user.is_authenticated:
+      messages.error(self.request, _('لا تملك صلاحية عرض هذه الوثيقة.'))
+      return redirect('accounts:profile')
+    return super().handle_no_permission()
+
 # خدمات المساعدة
 class PasswordChangeRTLView(BaseRTLView, PasswordChangeView, LoginRequiredMixin):
   """
@@ -182,3 +278,41 @@ class LanguageToggleView(View):
     lang = 'ar' if request.LANGUAGE_CODE == 'en' else 'en'
     request.session['django_language'] = lang
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
+# API
+class UserTypeAPIView(APIView):
+  """
+  واجهة API لاسترجاع نوع المستخدم
+  """
+  def get(self, request):
+    user_types = [
+      {
+        'value': 'owner',
+        'label': _('مالك المبني'),
+        'description': _('المالك القانوني للمبني للتجاري')
+      },
+      {
+        'value': 'investor',
+        'label': _('مستثمر المبني'),
+        'description': _('طرف مستثمر في المبني له حقوق استثمارية')
+      },
+      {
+        'value': 'company',
+        'label': _('شركة مستأجرة'),
+        'description': _('شركة لديها عقد إيجار لوحدات في المبني')
+      }
+    ]
+    return Response({
+      'success': True,
+      'data': user_types,
+      'message': _('تم جلب أنواع المستخدمين بنجاح.')
+    }, status=status.HTTP_200_OK)
+    
+  def post(self, request):
+    user_type = request.data.get('user_type')
+    if user_type not in ['owner', 'investor', 'company']:
+      return Response({
+        'success': False,
+        'message': _('نوع المستخدم غير صالح.')
+      }, status=status.HTTP_400_BAD_REQUEST)
+    request.session['user_type'] = user_type

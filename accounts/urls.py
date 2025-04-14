@@ -21,12 +21,13 @@ urlpatterns = [
   path('password-change/', PasswordChangeRTLView.as_view(), name='password_change'),
 
   # وثائق الشركات
+  path('documents/', views.CompanyDocumentListView.as_view(), name='document_list'),
   path('documents/add/', CompanyDocumentCreateView.as_view(), name='add_document'),
-  #path('documents/<int:pk>', views.CompanyDocumentDetailView.as_view(), name='document_detail'),
+  path('documents/<int:pk>', views.CompanyDocumentDetailView.as_view(), name='document_detail'),
 
   # إدارة اللغة والاتجاه
   path('set-language/', set_language, name='set_language'),
-  #path('toggle-rtl/', views.toggle_rtl, name='toggle_rtl'),
+  path('toggle-rtl/', views.toggle_rtl, name='toggle_rtl'),
 
   # مسارات خاصة بأنواع المستخدمين
   path('owner/dashboard/', views.BuildingOwnerDashboard.as_view(), name='owner_dashboard'),
@@ -34,7 +35,7 @@ urlpatterns = [
   path('company/dashboard/', views.RentalCompanyDashboard.as_view(), name='company_dashboard'),
 
   # API Endopints
-  #path('api/user-type/', views.UserTypeAPIView.as_view(), name='user_type_api'),
+  path('api/user-type/', views.UserTypeAPIView.as_view(), name='user_type_api'),
 ]
 
 # اسماء المترجمة

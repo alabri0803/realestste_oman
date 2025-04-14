@@ -1,5 +1,155 @@
 {% extends 'accounts/base_rtl.html' %}
-{% load i18n %}
-{% block title %}{% trans "تسجيل حساب جديد" %}{% endblock %}
+{% load i18n static %}
+{% block title %}{% trans _("تسجيل حساب جديد") %}{% endblock %}
 {% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border bg-primary text-white text-center">
+        <h3 class="mb-0">
+          <i class="fas fa-user-plus me-2"></i>
+          {% trans _("إنشاء حساب جديد") %}
+        </h3>
+      </div>
+      <div class="card-body">
+        <form method="post" class="rtl-form" novalidate>
+          {% csrf_token %}
+          <!-- نوع المستخدم -->
+          <div class="mb-4">
+            <label for="user_type" class="form-label fw-bold">
+              <i class="fas fa-user-tag me-1"></i>
+              {% trans _("نوع المستخدم") %}
+            </label>
+            <select class="form-select form-select-lg" id="user_type" name="user_type" required>
+              <option value="" disabled selected>{% trans _("اختر نوع المستخدم") %}</option>
+              <option value="owner">{% trans _("مالك المبني") %}</option>
+              <option value="investor">{% trans _("مستثمر المبني") %}</option>
+              <option value="company">{% trans _("شركة مستأجرة") %}</option>
+            </select>
+          </div>
+          <!-- معلومات أساسية -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="id_username" class="form-label">
+                <i class="fas fa-user me-2"></i>
+                {% trans _("اسم المستخدم") %}
+              </label>
+              <input type="text" class="form-control" id="id_username" name="username" required>
+            </div>
+            <div class="col-md-6">
+              <label for="id_email" class="form-label">
+                <i class="fas fa-envelope me-2"></i>
+                {% trans _("البريد الإلكتروني") %}
+              </label>
+              <input type="email" class="form-control" id="id_email" name="email" required>
+            </div>
+          </div>
+          <!-- الأسماء بلغتين -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="id_arabic_name" class="form-label">
+                <i class="fas fa-font me-2"></i>
+                {% trans _("الاسم بالعربية") %}
+              </label>
+              <input type="text" class="form-control arabic-input" id="id_arabic_name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="id_english_name" class="form-label">
+                <i class="fas fa-font me-2"></i>
+                {% trans _("الاسم بالإنجليزية") %}
+              </label>
+              <input type="text" class="form-control" id="id_english_name" required>
+            </div>
+          </div>
+          <!-- معلومات الاتصال -->
+          <div class="mb-4">
+            <label for="id_phone" class="form-label">
+              <i class="fas fa-phone me-2"></i>
+              {% trans _("رقم الهاتف عماني") %}
+            </label>
+            <div class="input-group">
+              <span class="input-group-text">+968</span>
+              <input type="tel" class="form-control" id="id_phone" name="phone" required pattern="[0-9]{8}">
+            </div>
+            <small class="text-muted">
+              {% trans _("رقم الهاتف يجب أن يكون 8 أرقام") %}
+            </small>
+          </div>
+          <!-- كلمة المرور -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="id_password1" class="form-label">
+                <i class="fas fa-lock me-2"></i>
+                {% trans _("كلمة المرور") %}
+              </label>
+              <input type="password" class="form-control" id="id_password1" name="password1" required>
+            </div>
+            <div class="col-md-6">
+              <label for="id_password2" class="form-label">
+                <i class="fas fa-lock me-2"></i>
+                {% trans _("تأكيد كلمة المرور") %}
+              </label>
+              <input type="password" class="form-control" id="id_password2" name="password2" required>
+            </div>
+          </div>
+          <!-- شروط الخدمة -->
+          <div class="form-check mb-4">
+            <input type="checkbox" class="form-check-input" id="terms" required>
+            <label class="form-check-label" for="terms">
+              {% trans _("أوافق على") %}
+              <a href="#" class="text-decoration-none">
+                {% trans _("شروط الخدمة") %}
+              </a>
+              {% trans _("و") %}
+              <a href="#" class="text-decoration-none">
+                {% trans _("سياسة الخصوصية") %}
+              </a>
+            </label>
+          </div>
+          <!-- زر التسجيل -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="fas fa-user-plus me-2"></i>
+              {% trans _("تسجيل حساب") %}
+            </button>
+          </div>
+        </form>
+        <hr class="my-4">
+        <div class="text-center">
+          <p class="mb-0">
+            {% trans _("لديك حساب بالفعل؟") %}
+            <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+              {% trans _("سجل الدخول هنا") %}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .arabic-input {
+    text-align: right;
+    direction: rtl
+  }
+  .english-input {
+    text-align: left;
+    direction: ltr
+  }
+  .rtl-form .input-group-text {
+    border-left: 0;
+    border-right: 1px solid #ced4da;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // تغيير الحقول الديناميكية حسب نوع المستخدم
+    const userTypeSelect = document.getElementById('user_type');
+    userTypeSelect.addEventListener('change', function() {
+      if(this.value === 'company'){
+        // إظهار حقول إضافة للشركات
+      }
+    });
+  });
+</script>
 {% endblock %}
