@@ -258,7 +258,7 @@ msgstr ""
 
 #: .\accounts\templates\accounts\navbar_rtl.html:32
 msgid "لوحة الشركة"
-msgstr ""
+msgstr "Company Dashboard"
 
 #: .\accounts\templates\accounts\navbar_rtl.html:46 .\accounts\views.py:92
 msgid "الملف الشخصي"
