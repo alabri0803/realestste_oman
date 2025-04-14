@@ -75,9 +75,9 @@ class SignUpView(BaseRTLView, CreateView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['user_types'] = [
-      ('owner', _('مالك المبني')),
-      ('investor', _('مستثمر المبني')),
-      ('company', _('شركة مستأجرة')),
+      (_('owner'), _('مالك المبني')),
+      (_('investor'), _('مستثمر المبني')),
+      (_('company'), _('شركة مستأجرة')),
     ]
     return context
 
