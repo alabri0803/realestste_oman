@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import CustomUser, UserProfile, CompanyDocument
 from .forms import CustomUserCreationForm, UserProfileForm, CompanyDocumentForm, LoginForm
 from django.contrib.auth.views import PasswordChangeView
-
+from django.contrib.auth.forms import AuthenticationForm
 class BaseRTLView:
   """
   كلاس أساسي لإعدادات والترجمة
@@ -28,6 +28,9 @@ class CustomLoginView(BaseRTLView, View):
   template_name = 'accounts/login.html'
   page_title = _('تسجيل الدخول')
 
+  def get_context_data(self, **kwargs):
+    return {'page_title': self.page_title,}
+
   def get(self, request):
     form = LoginForm()
     return render(request, self.template_name, {
@@ -36,7 +39,7 @@ class CustomLoginView(BaseRTLView, View):
     })
 
   def post(self, request):
-    form = LoginForm(request.POST)
+    form = AuthenticationForm(request, data=request.POST)
     if form.is_valid():
       user = form.get_user()
       login(request, user)
@@ -48,10 +51,10 @@ class CustomLoginView(BaseRTLView, View):
 
   def get_redirect_url(self, user):
     if user.user_type == 'owner':
-      return reverse_lazy('owner_dashboard')
+      return reverse_lazy('accounts:owner_dashboard')
     elif user.user_type == 'investor':
       return reverse_lazy('investor_dashboard')
-    return reverse_lazy('company_dashboard')
+    return reverse_lazy('accounts:company_dashboard')
 
 class CustomLogoutView(View):
   """
@@ -59,7 +62,7 @@ class CustomLogoutView(View):
   """
   def get(self, request):
     logout(request)
-    return redirect('login')
+    return redirect('accounts:login')
 
 # إدارة الحسابات
 class SignUpView(BaseRTLView, CreateView):
@@ -104,7 +107,7 @@ class BuildingOwnerDashboard(LoginRequiredMixin, UserPassesTestMixin, BaseRTLVie
   """
   لوحة التحكم مالك المبني
   """
-  template_name = 'accounts/dashboards/owner.html'
+  template_name = 'accounts/dashboards/owner_dashboard.html'
   page_title = _('لوحة التحكم - مالك المبني')
 
   def test_func(self):
@@ -124,7 +127,7 @@ class RentalCompanyDashboard(LoginRequiredMixin, UserPassesTestMixin, BaseRTLVie
   """
   لوحة التحكم شركة المستأجرة
   """
-  template_name = 'accounts/dashboards/company.html'
+  template_name = 'accounts/dashboards/company_dashboard.html'
   page_title = _('لوحة التحكم - شركة المستأجرة')
 
   def test_func(self):
