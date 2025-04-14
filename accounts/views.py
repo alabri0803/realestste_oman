@@ -52,7 +52,7 @@ class CustomLoginView(BaseRTLView, View):
   def get_redirect_url(self, user):
     if user.user_type == 'owner':
       return reverse_lazy('accounts:owner_dashboard')
-    elif user.user_type == 'investor':
+    elif user.user_type == 'accounts:investor':
       return reverse_lazy('investor_dashboard')
     return reverse_lazy('accounts:company_dashboard')
 
@@ -91,7 +91,7 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, UpdateView):
   model = CustomUser
   form_class = UserProfileForm
   template_name = 'accounts/profile.html'
-  success_url = reverse_lazy('profile')
+  success_url = reverse_lazy('accounts:profile')
   page_title = _('الملف الشخصي')
 
   def get_object(self):
@@ -117,7 +117,7 @@ class InvestorDashboard(LoginRequiredMixin, UserPassesTestMixin, BaseRTLView, Te
   """
   لوحة التحكم المستثمر
   """
-  template_name = 'accounts/dashboards/investor.html'
+  template_name = 'accounts/dashboards/investor_dashboard.html'
   page_title = _('لوحة التحكم - المستثمر')
 
   def test_func(self):
@@ -141,7 +141,7 @@ class CompanyDocumentCreateView(LoginRequiredMixin, BaseRTLView, CreateView):
   model = CompanyDocument
   form_class = CompanyDocumentForm
   template_name = 'accounts/documents/add.html'
-  success_url = reverse_lazy('profile')
+  success_url = reverse_lazy('accounts:profile')
   page_title = _('إضافة وثيقة')
 
   def form_valid(self, form):
@@ -171,7 +171,7 @@ class PasswordChangeRTLView(BaseRTLView, PasswordChangeView, LoginRequiredMixin)
   واجهة تغيير كلمة المرور مع دعم الترجمة
   """
   template_name = 'accounts/password_change.html'
-  success_url = reverse_lazy('profile')
+  success_url = reverse_lazy('accounts:profile')
   page_title = _('تغيير كلمة المرور')
 
 class LanguageToggleView(View):
