@@ -1,0 +1,52 @@
+/* تنسيقات عامه لاتجاه */
+body {
+  font-family: 'Tajawal', sans-serif;
+  text-align: right;
+}
+/* تنسيقات النماذج */
+.form-control .form-select {
+  text-align: right;
+  direction: rtl;
+}
+/* تنسيقات القوائم المنسدلة */
+.dropdown-menu {
+  text-align: right;
+}
+
+/* تنسيقات البطاقات */
+.card-header {
+  font-weight: 600;
+}
+
+/* الأزرار */
+.btn i {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+/* الجداول */
+.table th {
+  text-align: right;
+}
+/* لوحة التحكم */
+.dashboard-header {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+/* شريط اتنقل */
+.navbar-brand {
+  font-weight: 700;
+}
+.navbar-nav .nav-link {
+  font-weight: 500;
+}
+/* الهاتف */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+}

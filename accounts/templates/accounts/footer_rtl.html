@@ -1,0 +1,19 @@
+{% load i18n %}
+<footer class="mt-5 py-3 bg-light text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="mb-0">
+          <i class="fas fa-building me-1"></i>
+          {% trans _("نظام إدارة الإيجارات العقارية") %}
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">
+          <i class="fas fa-copyright me-1"></i>
+          {% trans _("جميع الحقوق محفوظة") %} &copy; {% now "Y" %}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
