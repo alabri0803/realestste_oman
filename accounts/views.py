@@ -1,19 +1,26 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import View, TemplateView, CreateView, UpdateView, DetailView, ListView
+from django.contrib.auth.views import PasswordChangeView
+from django.http import Http404, request
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from .models import CustomUser, UserProfile, CompanyDocument
-from .forms import CustomUserCreationForm, UserProfileForm, CompanyDocumentForm, LoginForm
-from django.contrib.auth.views import PasswordChangeView
-from django.contrib.auth.forms import AuthenticationForm
-from django.http import Http404, request
-from django.db.models import Q
-from django.contrib import messages
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.views.generic import CreateView, DetailView, ListView, TemplateView, View
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .forms import (
+  CompanyDocumentForm,
+  CustomUserChangeForm,
+  CustomUserCreationForm,
+  LoginForm,
+  UserProfileForm,
+)
+from .models import CompanyDocument, CustomUser
+
 
 class BaseRTLView:
   """
@@ -102,7 +109,7 @@ class SignUpView(BaseRTLView, CreateView):
     ]
     return context
 
-class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
   """
   واجهة تحديث الملف الشخصي مع دعم ثنائي اللغة
   """
@@ -112,8 +119,30 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, UpdateView):
   success_url = reverse_lazy('accounts:profile')
   page_title = _('الملف الشخصي')
 
-  def get_object(self):
-    return self.request.user
+  def get(self):
+    user_form = CustomUserChangeForm(instance=self.request.user)
+    profile_form = UserProfileForm(instance=self.request.user.profile)
+    return render(request, self.template_name, self.get_context_data(
+      user_form=user_form,
+      profile_form=profile_form
+    ))
+
+  def post(self):
+    user_form = CustomUserChangeForm(request.POST, instance=self.request.user)
+    profile_form = UserProfileForm(request.POST, request.FILES, instance=self.request.user.profile)
+    if user_form.is_valid() and profile_form.is_valid():
+      user_form.save()
+      profile_form.save()
+      return redirect('accounts:profile')
+    return render(request, self.template_name, self.get_context_data(
+      user_form=user_form,
+      profile_form=profile_form
+    ))
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['documents'] = CompanyDocument.objects.filter(user=self.request.user)[:3]
+    return context
 
   def get_form_kwargs(self):
     kwargs = super().get_form_kwargs()

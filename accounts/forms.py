@@ -1,6 +1,6 @@
 
 from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm
 from django.utils.translation import gettext_lazy as _
 
 from .models import CompanyDocument, CustomUser, UserProfile
@@ -37,26 +37,53 @@ class CustomUserCreationForm(UserCreationForm):
       'user_type', 
       'phone', 
       'arabic_name', 
-      'english_name', 
+      'english_name',
+      'commercial_registration',
     )
     labels = {
       'username': _('اسم المستخدم'),
       'email': _('البريد الإلكتروني'),
       'user_type': _('نوع الحساب'),
-      'phone': _('الهاتف'),
       'arabic_name': _('الاسم بالعربية'),
       'english_name': _('الاسم بالإنجليزية'),
+      'commercial_registration': _('السجل التجاري')
     }
     widgets = {
+      'username': forms.TextInput(
+        attrs={
+          'class': 'form-control',
+          'placeholder': _('اسم المستخدم')
+        }
+      ),
+      'email': forms.EmailInput(
+        attrs={
+          'class': 'form-control',
+          'placeholder': _('البريد الإلكتروني')
+        }
+      ),
       'user_type': forms.Select(
         attrs={
           'class': 'form-select',
         }
       ),
-      'phone': forms.TextInput(
+      'arabic_name': forms.TextInput(
         attrs={
           'class': 'form-control',
-          'placeholder': '+968XXXXXXXX'
+          'placeholder': _('الاسم بالعربية'),
+          'dir': 'rtl'
+        }
+      ),
+      'english_name': forms.TextInput(
+        attrs={
+          'class': 'form-control',
+          'placeholder': _('الاسم بالإنجليزية'),
+          'dir': 'ltr'
+        }
+      ),
+      'commercial_registration': forms.TextInput(
+        attrs={
+          'class': 'form-control',
+          'placeholder': _('السجل التجاري')
         }
       ),
     }
