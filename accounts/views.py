@@ -144,11 +144,6 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
     context['documents'] = CompanyDocument.objects.filter(user=self.request.user)[:3]
     return context
 
-  def get_form_kwargs(self):
-    kwargs = super().get_form_kwargs()
-    kwargs['instance'] = self.request.user.profile
-    return kwargs
-
 # لوحة التحكم
 class BuildingOwnerDashboard(LoginRequiredMixin, UserPassesTestMixin, BaseRTLView, TemplateView):
   """
