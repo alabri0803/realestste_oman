@@ -1,10 +1,29 @@
 
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 from .models import CompanyDocument, CustomUser, UserProfile
 
+
+class UserForm(forms.ModelForm):
+  """
+  نموذج المستخدم الأساسي
+  """
+  class Meta:
+    model = User
+    fields = (
+      'username',
+      'email',
+      'phone',
+      'arabic_name',
+      'english_name',
+      'address_arabic',
+      'address_english',
+      'logo',
+      'user_type'
+    )
 
   
 class CustomUserCreationForm(UserCreationForm):
