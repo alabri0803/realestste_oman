@@ -1,4 +1,4 @@
-from captcha.fields import ReCaptchaField
+
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
@@ -6,11 +6,6 @@ from django.utils.translation import gettext_lazy as _
 from .models import CompanyDocument, CustomUser, UserProfile
 
 
-class SignUpForm(forms.ModelForm):
-  """
-  نموذج تسجيل مستخدم جديد مع دعم الترجمة
-  """
-  captcha = ReCaptchaField()
   
 class CustomUserCreationForm(UserCreationForm):
   """
