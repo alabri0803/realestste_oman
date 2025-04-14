@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 14:18+0400\n"
+"POT-Creation-Date: 2025-04-14 15:00+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\accounts\admin.py:35
 msgid "المعلومات الشخصية"
 msgstr ""
@@ -78,7 +79,7 @@ msgid "مرحبا بكم في لوحة التحكم"
 msgstr ""
 
 #: .\accounts\forms.py:13 .\accounts\forms.py:17 .\accounts\forms.py:180
-#: .\accounts\forms.py:184
+#: .\accounts\forms.py:184 .\accounts\templates\accounts\login.html:26
 msgid "كلمة المرور"
 msgstr ""
 
@@ -155,10 +156,11 @@ msgid "تاريخ الانتهاء"
 msgstr ""
 
 #: .\accounts\forms.py:170 .\accounts\forms.py:174
+#: .\accounts\templates\accounts\login.html:20
 msgid "اسم المستخدم أو البريد الإلكتروني"
 msgstr ""
 
-#: .\accounts\forms.py:189
+#: .\accounts\forms.py:189 .\accounts\templates\accounts\login.html:33
 msgid "تذكرني"
 msgstr ""
 
@@ -242,6 +244,72 @@ msgstr ""
 msgid "نظام إدارة الإيجارات"
 msgstr ""
 
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:3
+msgid "لوحة تحكم مالك"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:8
+msgid "لوحة تحكم مالك المبني"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:11
+msgid "مرحبًا بك"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:20
+msgid "الإحصائيات"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:25
+msgid "الوحدات المؤجرة"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:29
+msgid "الإيراد الشهري"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:42
+msgid "الإجراءات السريعة"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:48
+msgid "عقد جديد"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:52
+msgid "تسجيل دفعة"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:56
+msgid "طلب صيانة"
+msgstr ""
+
+#: .\accounts\templates\accounts\dashboards\owner_dashboard.html:68
+msgid "الوثائق المبني"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:3
+#: .\accounts\templates\accounts\login.html:11
+#: .\accounts\templates\accounts\login.html:39 .\accounts\views.py:29
+msgid "تسجيل الدخول"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:22
+msgid "أدخل اسم المستخدم"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:28
+msgid "أدخل كلمة المرور"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:45
+msgid "نسيت كلمة المرور؟"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:49
+msgid "إنشاء حساب جديد"
+msgstr ""
+
 #: .\accounts\templates\accounts\navbar_rtl.html:6
 msgid "نظام الإيجارات العماني"
 msgstr ""
@@ -266,16 +334,21 @@ msgstr ""
 msgid "تسجيل الخروج"
 msgstr ""
 
+#: .\accounts\templates\accounts\navbar_rtl.html:59
+msgid "العربية"
+msgstr ""
+
+#: .\accounts\templates\accounts\navbar_rtl.html:60
+#: .\realestate\settings.py:111
+msgid "English"
+msgstr ""
+
 #: .\accounts\templates\accounts\signup.html:3 .\accounts\views.py:73
 msgid "تسجيل حساب جديد"
 msgstr ""
 
 #: .\accounts\views.py:20
 msgid "نظام الإيجارات"
-msgstr ""
-
-#: .\accounts\views.py:29
-msgid "تسجيل الدخول"
 msgstr ""
 
 #: .\accounts\views.py:78
@@ -316,10 +389,6 @@ msgstr ""
 
 #: .\realestate\settings.py:110
 msgid "Arabic"
-msgstr ""
-
-#: .\realestate\settings.py:111
-msgid "English"
 msgstr ""
 
 #: .\rentals\models.py:13
