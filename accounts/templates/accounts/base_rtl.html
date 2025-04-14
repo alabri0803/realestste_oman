@@ -1,0 +1,34 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %} | {% trans "نظام إدارة الإيجارات" %}</title>
+  <!-- Bootstrap RTL -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+
+  <!-- الخطوط العربية -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- المخصص CSS -->
+  <link rel="stylesheet" href="{% static 'css/accounts_rtl.css' %}">
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+</head>
+<body>
+  {% include 'accounts/navbar_rtl.html' %}
+
+  <main class="container py-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'accounts/footer_rtl.html' %}
+
+  <!-- JavaScript -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  {% block script %}{% endblock %}
+</body>
+</html>
