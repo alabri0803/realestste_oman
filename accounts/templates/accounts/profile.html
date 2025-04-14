@@ -1,5 +1,5 @@
 {% extends "accounts/base_rtl.html" %}
-{% load static i18n crisp_forms_tags %}
+{% load static i18n crispy_forms_tags %}
 {% block title %}{% trans _("الملف الشخصي") %}{% endblock %}
 {% block content %}
 <div class="container py-5">
@@ -155,7 +155,7 @@
       </div>
     </div>
   </div>
-  {% alif user.user_type == 'investor' %}
+  {% elif user.user_type == 'investor' %}
   <div class="card shadow-sm mt-4">
     <div class="card-header bg-success text-white">
       <i class="fas fa-chart-line me-2"></i>
