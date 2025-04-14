@@ -18,7 +18,7 @@ urlpatterns = [
   # إدارة الحسابات
   path('signup/', SignUpView.as_view(), name='signup'),
   path('profile/', ProfileUpdateView.as_view(), name='profile'),
-  path('password-change/', PasswordChangeRTLView.as_view(), name='password_change'),
+  path('password-change/', PasswordChangeRTLView.as_view(), name='password_reset'),
 
   # وثائق الشركات
   path('documents/', views.CompanyDocumentListView.as_view(), name='document_list'),

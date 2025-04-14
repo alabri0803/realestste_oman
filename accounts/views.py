@@ -290,7 +290,7 @@ class PasswordChangeRTLView(BaseRTLView, PasswordChangeView, LoginRequiredMixin)
   """
   واجهة تغيير كلمة المرور مع دعم الترجمة
   """
-  template_name = 'accounts/password_change.html'
+  template_name = 'accounts/password_reset.html'
   success_url = reverse_lazy('accounts:profile')
   page_title = _('تغيير كلمة المرور')
 
