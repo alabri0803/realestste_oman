@@ -7,7 +7,7 @@ from django.http import Http404, request
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import CreateView, DetailView, ListView, TemplateView, View
+from django.views.generic import CreateView, DetailView, ListView, TemplateView, View, UpdateView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -109,7 +109,7 @@ class SignUpView(BaseRTLView, CreateView):
     ]
     return context
 
-class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
+class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, UpdateView):
   """
   واجهة تحديث الملف الشخصي مع دعم ثنائي اللغة
   """
@@ -119,7 +119,7 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
   success_url = reverse_lazy('accounts:profile')
   page_title = _('الملف الشخصي')
 
-  def get(self):
+  def get(self, request, *args, **kwargs):
     user_form = CustomUserChangeForm(instance=self.request.user)
     profile_form = UserProfileForm(instance=self.request.user.profile)
     return render(request, self.template_name, self.get_context_data(
@@ -127,7 +127,7 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
       profile_form=profile_form
     ))
 
-  def post(self):
+  def post(self, request, *args, **kwargs):
     user_form = CustomUserChangeForm(request.POST, instance=self.request.user)
     profile_form = UserProfileForm(request.POST, request.FILES, instance=self.request.user.profile)
     if user_form.is_valid() and profile_form.is_valid():
@@ -140,7 +140,7 @@ class ProfileUpdateView(LoginRequiredMixin, BaseRTLView, View):
     ))
 
   def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
+    context = kwargs
     context['documents'] = CompanyDocument.objects.filter(user=self.request.user)[:3]
     return context
 
