@@ -1,0 +1,196 @@
+{% extends "accounts/base_rtl.html" %}
+{% load static i18n crisp_forms_tags %}
+{% block title %}{% trans _("الملف الشخصي") %}{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <div class="profile-header mb-5 text-center">
+    <h1 class="fw-bold text-primary">
+      <i class="fas fa-user-circle me-2"></i>
+      {% trans _("الملف الشخصي") %}
+    </h1>
+    <p class="lead text-muted">
+      {% blocktrans with user_type=user.get_user_type_display %}
+      أنت مسجل لــــ <span class="badge bg-info">{{ user_type }}</span>
+      {% endblocktrans %}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card-header bg-secondary text-white">
+        <i class="fas fa-id-card me-2"></i>
+        {% trans _("بطاقة المستخدم") %}
+      </div>
+      <div class="card-body text-center">
+        <div class="profile-img mb-3">
+          {% if user.profile_image %}
+          <img src="{{ user.profile.logo.url }}" class="rounded-circle border border-3 border-primary" width="150" height="150" alt="{% trans _('صورة المستخدم') %}">
+          {% else %}
+          <div class="no-img d-flex justify-content-center align-items-center rounded-circle bg-light" style="width: 150px; height: 150px;margin:0 auto;">
+            <i class="fas fa-user fa-3x text-muted"></i>
+          </div>
+          {% endif %}
+        </div>
+        <h4 class="mb-2">{{ user.arabic_name|default:user.username }}</h4>
+        <div class="user-meta mb-3">
+          <span class="badge bg-{% if user.is_verified %}success{% else %}warning{% endif %}">
+            {% if user.is_verified %}
+            <i class="fas fa-check-circle me-1"></i>
+            {% trans _("حساب موثوق") %}
+            {% else %}
+            <i class="fas fa-exclamation-circle me-1"></i>
+            {% trans _("حساب غير موثوق") %}
+            {% endif %}
+          </span>
+        </div>
+        <hr>
+        <ul class="list-unstyled text-start">
+          <li class="mb-2">
+            <i class="fas fa-envelope me-2 text-primary"></i>
+            {{ user.email|default:"-" }}
+          </li>
+          <li class="mb-2">
+            <i class="fas fa-phone me-2 text-primary"></i>
+            {{ user.phone|default:"-" }}
+          </li>
+          {% if user.user_type == 'company' %}
+          <li class="mb-2">
+            <i class="fas fa-file-alt me-2 text-primary"></i>
+            {{ user.commercial_registration|default:"-" }}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    {% if user.user_type == 'owner' %}
+    <div class="card shadow-sm mt-4">
+      <div class="card-header bg-warning text-dark">
+        <i class="fas fa-file-contract me-2"></i>
+        {% trans _("الوثائق المطلوبة") %}
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          {% for doc in user.documents.all|slice:":3" %}
+          <li class="list-group-item">
+            <i class="fas fa-file-pdf me-2 text-primary"></i>
+            {{ doc.document_type_display }}
+            <small class="d-block text-muted">
+              {{ doc.issue_date|date:"d/m/Y"}}
+            </small>
+          </li>
+          {% empty %}
+          <li class="list-group-item text-muted">
+            {% trans _("لا توجد وثائق مرفوعة") %}
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'accounts:document_list' %}" class="btn btn-sm btn-outline-primary mt-3 w-100">
+          {% trans _("عرض جميع الوثائق") %}
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <i class="fas fa-edit me-2"></i>
+        {% trans _("تعديل البيانات") %}
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <h5 class="mb-3 text-primary">
+              <i class="fas fa-info-circle me-2"></i>
+              {% trans _("المعلومات الأساسية") %}
+            </h5>
+            {{ user_form.username|as_crispy_field }}
+            {{ user_form.arabic_name|as_crispy_field }}
+            {{ user_form.english_name|as_crispy_field }}
+            {{ user_form.email|as_crispy_field }}
+          </div>
+          <div class="col-md-6">
+            <h5 class="mb-3 text-primary">
+              <i class="fas fa-phone-alt me-2"></i>
+              {% trans _("معلومات الاتصال") %}
+            </h5>
+            {{ user_form.phone|as_crispy_field }}
+            {% if user.user_type == 'company' %}
+            {{ user_form.commercial_registration|as_crispy_field }}
+            {% endif %}
+            {{ profile_form.address_arabic|as_crispy_field }}
+            {{ profile_form.address_english|as_crispy_field
+          </div>
+      </div>
+      <div class="mt-4">
+        <h5 class="mb-3 text-primary">
+          <i class="fas fa-image me-2"></i>
+          {% trans _("الصورة الشخصية") %}
+        </h5>
+        {{ profile_form.logo|as_crispy_field }}
+      </div>
+      <div class="d-flex justify-content-between mt-4">
+        <a href="{% url 'accounts:password_change' %}" class="btn btn-outline-secondary">
+          <i class="fas fa-key me-2"></i>
+          {% trans _("تغيير كلمة المرور") %}
+        </a>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-save me-2"></i>
+          {% trans _("حفظ التعديلات") %}
+        </button>
+      </div>
+        </form>
+      </div>
+    </div>
+  {% if user.user_type == 'owner' %}
+  <div class="card shadow-sm mt-4">
+    <div class="card-header bg-success text-white">
+      <i class="fas fa-home me-2"></i>
+      {% trans _("المباني المملوكة") %}
+    </div>
+    <div class="card-body">
+      <div class="alert alert-info">
+        <i class="fas fa-info-circle me-2"></i>
+        {% trans _("يمكنك إدارة مبانيك من خلال هذه اللوحة") %}
+      </div>
+    </div>
+  </div>
+  {% alif user.user_type == 'investor' %}
+  <div class="card shadow-sm mt-4">
+    <div class="card-header bg-success text-white">
+      <i class="fas fa-chart-line me-2"></i>
+      {% trans _("تقرير الاستثمار") %}
+    </div>
+    <div class="card-body">
+      
+    </div>
+  </div>
+  {% else %}
+  <div class="card shadow-sm mt-4">
+    <div class="card-header bg-dark text-white">
+      <i class="fas fa-file-signature me-2"></i>
+      {% trans _("العقود النشطة") %}
+    </div>
+    <div class="card-body">
+      
+    </div>
+  </div>
+  {% endif %}
+  </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  document.getElementById('id_logo').addEventListener('change', function(event){
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.querySelector('.profile-img img').src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+{% endblock %}
