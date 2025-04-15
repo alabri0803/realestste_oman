@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-15 11:57+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: realestate/settings.py:118
+msgid "العربية"
+msgstr ""
+
+#: realestate/settings.py:119
+msgid "English"
+msgstr ""
+
+#: rentals/models.py:13
+msgid "اسم المبنى"
+msgstr ""
+
+#: rentals/models.py:16
+msgid "العنوان التفصيلي"
+msgstr ""
+
+#: rentals/models.py:19
+msgid "عدد الطوابق"
+msgstr ""
+
+#: rentals/models.py:23
+msgid "وصف المبنى"
+msgstr ""
+
+#: rentals/models.py:29 rentals/models.py:93 rentals/models.py:151
+msgid "تاريخ الإنشاء"
+msgstr ""
+
+#: rentals/models.py:33 rentals/models.py:97 rentals/models.py:155
+msgid "تاريخ التحديث"
+msgstr ""
+
+#: rentals/models.py:40
+msgid "المبني"
+msgstr ""
+
+#: rentals/models.py:41
+msgid "المباني"
+msgstr ""
+
+#: rentals/models.py:55
+msgid "محل تجاري"
+msgstr ""
+
+#: rentals/models.py:56
+msgid "مكتب"
+msgstr ""
+
+#: rentals/models.py:57
+msgid "شقة"
+msgstr ""
+
+#: rentals/models.py:58
+msgid "مخزن"
+msgstr ""
+
+#: rentals/models.py:59
+msgid "موقف سيارات"
+msgstr ""
+
+#: rentals/models.py:64
+msgid "المبنى"
+msgstr ""
+
+#: rentals/models.py:70
+msgid "نوع الوحدة"
+msgstr ""
+
+#: rentals/models.py:74
+msgid "رقم الوحدة"
+msgstr ""
+
+#: rentals/models.py:78
+msgid "المساحة"
+msgstr ""
+
+#: rentals/models.py:83 rentals/models.py:132
+msgid "الإيجار الشهري (ريال عماني)"
+msgstr ""
+
+#: rentals/models.py:87
+msgid "مؤجرة؟"
+msgstr ""
+
+#: rentals/models.py:101 rentals/models.py:121
+msgid "الوحدة"
+msgstr ""
+
+#: rentals/models.py:102
+msgid "الوحدات"
+msgstr ""
+
+#: rentals/models.py:116
+msgid "الشركة المستأجرة"
+msgstr ""
+
+#: rentals/models.py:124
+msgid "تاريخ البدء"
+msgstr ""
+
+#: rentals/models.py:127
+msgid "تاريخ الانتهاء"
+msgstr ""
+
+#: rentals/models.py:137
+msgid "قيمة الضمان (ريال عماني)"
+msgstr ""
+
+#: rentals/models.py:141
+msgid "ملف العقد"
+msgstr ""
+
+#: rentals/models.py:145
+msgid "ملاحظات"
+msgstr ""
+
+#: rentals/models.py:162
+msgid "عقد إيجار"
+msgstr ""
+
+#: rentals/models.py:163
+msgid "عقود الإيجار"
+msgstr ""
+
+#: rentals/models.py:175
+msgid "تاريخ الانتهاء يجب أن يكون بعد تاريخ البدء."
+msgstr ""
+
+#: rentals/models.py:177
+msgid "الوحدة مؤجرة بالفعل."
+msgstr ""
