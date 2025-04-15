@@ -118,7 +118,7 @@ LANGUAGES = [
     ('ar', _('العربية')),
     ('en', _('English')),
 ]
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Muscat'
 
 USE_I18N = True
 USE_L10N = True
@@ -148,3 +148,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CURRENCY = 'OMR'
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.CustomUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
