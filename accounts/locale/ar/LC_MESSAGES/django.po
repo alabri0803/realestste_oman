@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 11:57+0000\n"
-"PO-Revision-Date: 2025-04-15 12:00+0400\n"
-"Last-Translator: Your Name <email@example.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
-"Language: ar\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 #: accounts/admin.py:35
 msgid "المعلومات الشخصية"
 msgstr "Personal Information"
@@ -34,441 +34,436 @@ msgstr "Important Dates"
 msgid "الاسم العربي"
 msgstr "Arabic Name"
 
-#: accounts/admin.py:105 accounts/models.py:22
-#: accounts/templates/accounts/signup.html:21
+#: accounts/admin.py:105 accounts/models.py:22 accounts/templates/accounts/signup.html:21
 msgid "نوع المستخدم"
 msgstr "User Type"
 
 #: accounts/admin.py:109
 msgid "العنوان العربي"
-msgstr "Arabic Address"
+msgstr ""
 
 #: accounts/admin.py:113
 msgid "العنوان الإنجليزي"
-msgstr "English Address"
+msgstr ""
 
 #: accounts/admin.py:135
 msgid "معلومات المستخدم"
-msgstr "User Information"
+msgstr ""
 
 #: accounts/admin.py:139
 msgid "رابط الملف"
-msgstr "File Link"
+msgstr ""
 
 #: accounts/admin.py:143
 msgid "عرض الملف"
-msgstr "View File"
+msgstr ""
 
 #: accounts/admin.py:144
 msgid "لا يوجد ملف"
-msgstr "No File"
+msgstr ""
 
 #: accounts/admin.py:152
 msgid "تفاصيل الملف"
-msgstr "File Details"
+msgstr ""
 
 #: accounts/admin.py:173
 msgid "إدارة نظام الإيجارات - عمان"
-msgstr "Rental Management System - Oman"
+msgstr ""
 
 #: accounts/admin.py:174
 msgid "نظام إدارة العقارات"
-msgstr "Real Estate Management System"
+msgstr ""
 
 #: accounts/admin.py:175
 msgid "مرحبا بكم في لوحة التحكم"
-msgstr "Welcome to the Control Panel"
+msgstr ""
 
 #: accounts/forms.py:14 accounts/forms.py:18 accounts/forms.py:207
 #: accounts/forms.py:211 accounts/templates/accounts/login.html:26
 #: accounts/templates/accounts/signup.html:83
 msgid "كلمة المرور"
-msgstr "Password"
+msgstr ""
 
 #: accounts/forms.py:21 accounts/templates/accounts/password_reset.html:33
 msgid "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل."
-msgstr "Password must be at least 8 characters long."
+msgstr ""
 
 #: accounts/forms.py:24 accounts/forms.py:28
 #: accounts/templates/accounts/signup.html:90
 msgid "تأكيد كلمة المرور"
-msgstr "Confirm Password"
+msgstr ""
 
 #: accounts/forms.py:43 accounts/forms.py:54 accounts/forms.py:112
 #: accounts/templates/accounts/signup.html:35
 msgid "اسم المستخدم"
-msgstr "Username"
+msgstr ""
 
 #: accounts/forms.py:44 accounts/forms.py:66 accounts/forms.py:113
 #: accounts/templates/accounts/signup.html:42
 msgid "البريد الإلكتروني"
-msgstr "Email"
+msgstr ""
 
 #: accounts/forms.py:45
 msgid "نوع الحساب"
-msgstr "Account Type"
+msgstr ""
 
 #: accounts/forms.py:46 accounts/forms.py:114
 msgid "الهاتف"
-msgstr "Phone"
+msgstr ""
 
 #: accounts/forms.py:47 accounts/forms.py:77 accounts/forms.py:115
 #: accounts/models.py:40 accounts/templates/accounts/signup.html:52
 msgid "الاسم بالعربية"
-msgstr "Name in Arabic"
+msgstr ""
 
 #: accounts/forms.py:48 accounts/forms.py:84 accounts/forms.py:116
 #: accounts/models.py:46 accounts/templates/accounts/signup.html:59
 msgid "الاسم بالإنجليزية"
-msgstr "Name in English"
+msgstr ""
 
 #: accounts/forms.py:60
 msgid "+968XXXXXXXX"
-msgstr "+968XXXXXXXX"
+msgstr ""
 
 #: accounts/forms.py:93 accounts/models.py:14 accounts/signals.py:78
 #: accounts/templates/accounts/signup.html:25 accounts/views.py:106
 #: accounts/views.py:315
 msgid "مالك المبني"
-msgstr "Building Owner"
+msgstr ""
 
 #: accounts/forms.py:94 accounts/templates/accounts/signup.html:26
 #: accounts/views.py:107 accounts/views.py:320
 msgid "مستثمر المبني"
-msgstr "Building Investor"
+msgstr ""
 
 #: accounts/forms.py:95 accounts/models.py:16
 #: accounts/templates/accounts/signup.html:27 accounts/views.py:108
 #: accounts/views.py:325
 msgid "شركة مستأجرة"
-msgstr "Leasing Company"
+msgstr ""
 
 #: accounts/forms.py:131 accounts/models.py:83
 msgid "العنوان بالعربية"
-msgstr "Address in Arabic"
+msgstr ""
 
 #: accounts/forms.py:132 accounts/models.py:88
 msgid "العنوان بالإنجليزية"
-msgstr "Address in English"
+msgstr ""
 
 #: accounts/forms.py:133
 msgid "الشعار الشركة"
-msgstr "Company Logo"
+msgstr ""
 
 #: accounts/forms.py:165 accounts/models.py:126
 msgid "نوع المستند"
-msgstr "Document Type"
+msgstr ""
 
 #: accounts/forms.py:166
 msgid "رفع الملف"
-msgstr "Upload File"
+msgstr ""
 
 #: accounts/forms.py:167 accounts/models.py:135
 msgid "تاريخ الإصدار"
-msgstr "Issue Date"
+msgstr ""
 
 #: accounts/forms.py:168 accounts/models.py:141
 msgid "تاريخ الانتهاء"
-msgstr "Expiry Date"
+msgstr ""
 
 #: accounts/forms.py:197 accounts/forms.py:201
 #: accounts/templates/accounts/login.html:20
 msgid "اسم المستخدم أو البريد الإلكتروني"
-msgstr "Username or Email"
+msgstr ""
 
 #: accounts/forms.py:216 accounts/templates/accounts/login.html:33
 msgid "تذكرني"
-msgstr "Remember Me"
+msgstr ""
 
 #: accounts/forms.py:230
 msgid "البريد الإلكتروني المسجل"
-msgstr "Registered Email"
+msgstr ""
 
 #: accounts/forms.py:234
 msgid "أدخل بريدك الإلكتروني"
-msgstr "Enter your email"
+msgstr ""
 
 #: accounts/models.py:15
 msgid "مستثمر"
-msgstr "Investor"
+msgstr ""
 
 #: accounts/models.py:28
 msgid "رقم الهاتف يجب أن يكون بتنسيق: +968XXXXXXXX."
-msgstr "Phone number must be in format: +968XXXXXXXX."
+msgstr ""
 
 #: accounts/models.py:33
 msgid "هاتف عماني"
-msgstr "Omani Phone"
+msgstr ""
 
 #: accounts/models.py:52
 msgid "السجل التجاري"
-msgstr "Commercial Register"
+msgstr ""
 
 #: accounts/models.py:60 accounts/templates/accounts/profile.html:38
 msgid "حساب موثوق"
-msgstr "Verified Account"
+msgstr ""
 
 #: accounts/models.py:64
 msgid "مستخدم"
-msgstr "User"
+msgstr ""
 
 #: accounts/models.py:65
 msgid "المستخدمون"
-msgstr "Users"
+msgstr ""
 
 #: accounts/models.py:79 accounts/models.py:114
 msgid "المستخدم"
-msgstr "User"
+msgstr ""
 
 #: accounts/models.py:94
 msgid "الشعار"
-msgstr "Logo"
+msgstr ""
 
 #: accounts/models.py:100
 msgid "ملف شخصي"
-msgstr "Profile"
+msgstr ""
 
 #: accounts/models.py:101
 msgid "الملفات الشخصية"
-msgstr "Profiles"
+msgstr ""
 
 #: accounts/models.py:118
 msgid "رخصة تجارية"
-msgstr "Commercial License"
+msgstr ""
 
 #: accounts/models.py:119
 msgid "نسخة بطاقة"
-msgstr "ID Copy"
+msgstr ""
 
 #: accounts/models.py:120
 msgid "عقد التأسيس"
-msgstr "Establishment Contract"
+msgstr ""
 
 #: accounts/models.py:131
 msgid "الملف"
-msgstr "File"
+msgstr ""
 
 #: accounts/models.py:147
 msgid "وثيقة شركة"
-msgstr "Company Document"
+msgstr ""
 
 #: accounts/models.py:148
 msgid "وثائق الشركات"
-msgstr "Company Documents"
+msgstr ""
 
 #: accounts/signals.py:19
 msgid "مرحباً بك في نظام إدارة الإيجارات"
-msgstr "Welcome to the Rental Management System"
+msgstr ""
 
 #: accounts/signals.py:21
 msgid ""
 "مرحباً بك في نظام إدارة الإيجارات. يمكنك الآن إضافة عقاراتك وتتبع الإيجارات."
-msgstr "Welcome to the Rental Management System. You can now add your properties and track rentals."
+msgstr ""
 
 #: accounts/signals.py:24
 msgid ""
 "مرحباً بك في نظام إدارة الإيجارات. يمكنك الآن إضافة استثماراتك وتتبع الأرباح."
-msgstr "Welcome to the Rental Management System. You can now add your investments and track profits."
+msgstr ""
 
 #: accounts/signals.py:26
 msgid ""
 "مرحباً بك في نظام إدارة الإيجارات. يمكنك الآن إضافة شركاتك وتتبع الإيجارات."
-msgstr "Welcome to the Rental Management System. You can now add your companies and track leases."
+msgstr ""
 
 #: accounts/signals.py:42
 msgid "نوع الوثيقة غير مسموح به للمالك."
-msgstr "Document type not allowed for owner."
+msgstr ""
 
 #: accounts/signals.py:48
 msgid "نوع الوثيقة غير مسموح به للمستثمر."
-msgstr "Document type not allowed for investor."
+msgstr ""
 
 #: accounts/signals.py:54
 msgid "نوع الوثيقة غير مسموح به للشركة."
-msgstr "Document type not allowed for company."
+msgstr ""
 
 #: accounts/signals.py:65
 msgid "تم إضافة وثيقة جديدة"
-msgstr "New document added"
+msgstr ""
 
 #: accounts/signals.py:66
 #, python-brace-format
 msgid ""
 "تم رفع وثيقة جديدة من نوع {document_type} من قبل {user.name}. نوع المستخدم: "
 "{user.user_type} تاريخ الانتهاء: {expiry_date}"
-msgstr "A new {document_type} document was uploaded by {user.name}. User type: {user.user_type} Expiry date: {expiry_date}"
+msgstr ""
 
 #: accounts/signals.py:70
 msgid "غير محدد"
-msgstr "Undefined"
+msgstr ""
 
 #: accounts/signals.py:80
-msgid "المالك القانوني للمبني"
-msgstr "Legal owner of the building"
-
-#: accounts/signals.py:82
 msgid "مستثمر عقاري"
-msgstr "Real estate investor"
+msgstr ""
 
 #: accounts/signals.py:82
 msgid "شركة مستأجر"
-msgstr "Leasing company"
+msgstr ""
 
 #: accounts/templates/accounts/base_rtl.html:8
 msgid "نظام إدارة الإيجارات"
-msgstr "Rental Management System"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:3
 msgid "لوحة تحكم مالك"
-msgstr "Owner Dashboard"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:8
 msgid "لوحة تحكم مالك المبني"
-msgstr "Building Owner Dashboard"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:11
 msgid "مرحبًا بك"
-msgstr "Welcome"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:20
 msgid "الإحصائيات"
-msgstr "Statistics"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:25
 msgid "الوحدات المؤجرة"
-msgstr "Rented Units"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:29
 msgid "الإيراد الشهري"
-msgstr "Monthly Revenue"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:42
 msgid "الإجراءات السريعة"
-msgstr "Quick Actions"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:48
 msgid "عقد جديد"
-msgstr "New Contract"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:52
 msgid "تسجيل دفعة"
-msgstr "Record Payment"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:56
 msgid "طلب صيانة"
-msgstr "Maintenance Request"
+msgstr ""
 
 #: accounts/templates/accounts/dashboards/owner_dashboard.html:68
 msgid "الوثائق المبني"
-msgstr "Building Documents"
+msgstr ""
 
 #: accounts/templates/accounts/footer_rtl.html:8
 msgid "نظام إدارة الإيجارات العقارية"
-msgstr "Real Estate Rental Management System"
+msgstr ""
 
 #: accounts/templates/accounts/footer_rtl.html:14
 msgid "جميع الحقوق محفوظة"
-msgstr "All Rights Reserved"
+msgstr ""
 
 #: accounts/templates/accounts/login.html:3
 #: accounts/templates/accounts/login.html:11
 #: accounts/templates/accounts/login.html:39 accounts/views.py:54
 msgid "تسجيل الدخول"
-msgstr "Login"
+msgstr ""
 
 #: accounts/templates/accounts/login.html:22
 msgid "أدخل اسم المستخدم"
-msgstr "Enter username"
+msgstr ""
 
 #: accounts/templates/accounts/login.html:28
 msgid "أدخل كلمة المرور"
-msgstr "Enter password"
+msgstr ""
 
 #: accounts/templates/accounts/login.html:45
 msgid "نسيت كلمة المرور؟"
-msgstr "Forgot password?"
+msgstr ""
 
 #: accounts/templates/accounts/login.html:49
 #: accounts/templates/accounts/signup.html:11
 msgid "إنشاء حساب جديد"
-msgstr "Create new account"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:6
 msgid "نظام الإيجارات العماني"
-msgstr "Omani Rental System"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:18
 msgid "لوحة التحكم"
-msgstr "Dashboard"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:25
 msgid "لوحة المستثمر"
-msgstr "Investor Dashboard"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:32
 msgid "لوحة الشركة"
-msgstr "Company Dashboard"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:46
 #: accounts/templates/accounts/profile.html:3
 #: accounts/templates/accounts/profile.html:9 accounts/views.py:120
 msgid "الملف الشخصي"
-msgstr "Profile"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:49
 msgid "تسجيل الخروج"
-msgstr "Logout"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:59
 msgid "العربية"
-msgstr "Arabic"
+msgstr ""
 
 #: accounts/templates/accounts/navbar_rtl.html:60
 msgid "English"
-msgstr "English"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:3
 #: accounts/templates/accounts/password_reset.html:10
 msgid "إعادة تعيين كلمة المرور"
-msgstr "Reset Password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:19
 msgid "كلمة المرور الجديدة"
-msgstr "New Password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:25
 msgid "إدخل كلمة المرور الجديدة"
-msgstr "Enter new password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:39
 msgid "تأكيد كلمة المرور الجديدة"
-msgstr "Confirm New Password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:45
 msgid "أعد إدخال كلمة المرور الجديدة"
-msgstr "Re-enter new password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:56
 msgid "حفظ كلمة المرور الجديدة"
-msgstr "Save New Password"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:64
 msgid "رابط غير صالح"
-msgstr "Invalid Link"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:67
 msgid ""
 "رابط إعادة تعيين كلمة المرور غير صالح، ربما لأنه تم استخدامه من قبل. يرجى "
 "طلب إعادة تعيين جديدة."
-msgstr "The password reset link is invalid, possibly because it has already been used. Please request a new reset."
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:73
 msgid "طلب رابط جديد"
-msgstr "Request New Link"
+msgstr ""
 
 #: accounts/templates/accounts/password_reset.html:83
 msgid "العودة إلى صفحة تسجيل الدخول"
-msgstr "Return to Login Page"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:12
 #, python-format
@@ -477,182 +472,179 @@ msgid ""
 "      أنت مسجل لــــ <span class=\"badge bg-info\">%(user_type)s</span>\n"
 "      "
 msgstr ""
-"\n"
-"      You are registered as <span class=\"badge bg-info\">%(user_type)s</span>\n"
-"      "
 
 #: accounts/templates/accounts/profile.html:21
 msgid "بطاقة المستخدم"
-msgstr "User Card"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:26
 msgid "صورة المستخدم"
-msgstr "User Image"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:41
 msgid "حساب غير موثوق"
-msgstr "Unverified Account"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:68
 msgid "الوثائق المطلوبة"
-msgstr "Required Documents"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:82
 msgid "لا توجد وثائق مرفوعة"
-msgstr "No Documents Uploaded"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:87
 msgid "عرض جميع الوثائق"
-msgstr "View All Documents"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:97
 msgid "تعديل البيانات"
-msgstr "Edit Data"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:105
 msgid "المعلومات الأساسية"
-msgstr "Basic Information"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:115
 msgid "معلومات الاتصال"
-msgstr "Contact Information"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:128
 msgid "الصورة الشخصية"
-msgstr "Profile Picture"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:135 accounts/views.py:295
 msgid "تغيير كلمة المرور"
-msgstr "Change Password"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:139
 msgid "حفظ التعديلات"
-msgstr "Save Changes"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:149
 msgid "المباني المملوكة"
-msgstr "Owned Buildings"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:154
 msgid "يمكنك إدارة مبانيك من خلال هذه اللوحة"
-msgstr "You can manage your buildings through this panel"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:162
 msgid "تقرير الاستثمار"
-msgstr "Investment Report"
+msgstr ""
 
 #: accounts/templates/accounts/profile.html:172
 msgid "العقود النشطة"
-msgstr "Active Contracts"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:3 accounts/views.py:101
 msgid "تسجيل حساب جديد"
-msgstr "Register New Account"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:24
 msgid "اختر نوع المستخدم"
-msgstr "Choose User Type"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:68
 msgid "رقم الهاتف عماني"
-msgstr "Omani Phone Number"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:75
 msgid "رقم الهاتف يجب أن يكون 8 أرقام"
-msgstr "Phone number must be 8 digits"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:99
 msgid "أوافق على"
-msgstr "I agree to"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:101
 msgid "شروط الخدمة"
-msgstr "Terms of Service"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:103
 msgid "و"
-msgstr "and"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:105
 msgid "سياسة الخصوصية"
-msgstr "Privacy Policy"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:113
 msgid "تسجيل حساب"
-msgstr "Register Account"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:120
 msgid "لديك حساب بالفعل؟"
-msgstr "Already have an account?"
+msgstr ""
 
 #: accounts/templates/accounts/signup.html:122
 msgid "سجل الدخول هنا"
-msgstr "Login here"
+msgstr ""
 
 #: accounts/views.py:34
 msgid "نظام الإيجارات"
-msgstr "Rental System"
+msgstr ""
 
 #: accounts/views.py:106
 msgid "owner"
-msgstr "Owner"
+msgstr ""
 
 #: accounts/views.py:107
 msgid "investor"
-msgstr "Investor"
+msgstr ""
 
 #: accounts/views.py:108
 msgid "company"
-msgstr "Company"
+msgstr ""
 
 #: accounts/views.py:153
 msgid "لوحة التحكم - مالك المبني"
-msgstr "Dashboard - Building Owner"
+msgstr ""
 
 #: accounts/views.py:163
 msgid "لوحة التحكم - المستثمر"
-msgstr "Dashboard - Investor"
+msgstr ""
 
 #: accounts/views.py:173
 msgid "لوحة التحكم - شركة المستأجرة"
-msgstr "Dashboard - Leasing Company"
+msgstr ""
 
 #: accounts/views.py:187
 msgid "إضافة وثيقة"
-msgstr "Add Document"
+msgstr ""
 
 #: accounts/views.py:205
 msgid "وثائق الشركة"
-msgstr "Company Documents"
+msgstr ""
 
 #: accounts/views.py:217
 msgid "تفاصيل الوثيقة"
-msgstr "Document Details"
+msgstr ""
 
 #: accounts/views.py:245 accounts/views.py:284
 msgid "لا تملك صلاحية عرض هذه الوثيقة."
-msgstr "You don't have permission to view this document."
+msgstr ""
 
 #: accounts/views.py:248
 msgid "الوثيقة غير موجودة."
-msgstr "Document does not exist."
+msgstr ""
 
 #: accounts/views.py:316
 msgid "المالك القانوني للمبني للتجاري"
-msgstr "Legal owner of the commercial building"
+msgstr ""
 
 #: accounts/views.py:321
 msgid "طرف مستثمر في المبني له حقوق استثمارية"
-msgstr "Investing party in the building with investment rights"
+msgstr ""
 
 #: accounts/views.py:326
 msgid "شركة لديها عقد إيجار لوحدات في المبني"
-msgstr "Company with lease contract for units in the building"
+msgstr ""
 
 #: accounts/views.py:332
 msgid "تم جلب أنواع المستخدمين بنجاح."
-msgstr "User types retrieved successfully."
+msgstr ""
 
 #: accounts/views.py:340
 msgid "نوع المستخدم غير صالح."
-msgstr "Invalid user type."
+msgstr ""
