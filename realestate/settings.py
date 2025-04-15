@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ar'
 LANGUAGES = [
-    ('ar', _('Arabic')),
+    ('ar', _('العربية')),
     ('en', _('English')),
 ]
 TIME_ZONE = 'UTC'
@@ -148,3 +148,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CURRENCY = 'OMR'
+LOACALE_PATHS = [
+    os.path.join(BASE_DIR, 'accounts/locale')
+]
